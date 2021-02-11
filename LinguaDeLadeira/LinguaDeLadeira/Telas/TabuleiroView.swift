@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import GameplayKit
+
+
+var diceImages: [UIImage]! = [UIImage(named: "Dado 1")!, UIImage(named: "Dado 2")!, UIImage(named: "Dado 3")!]
+
+let animationDice = UIImage.animatedImage(with: diceImages, duration: 2.0)
+
 
 struct TabuleiroView: View {
+    
+    @State var dicing = false
+    @State var diced = "Dado 1"
+    
     var body: some View {
         VStack(alignment: .leading) {
-         
-          
+            
+            
             HStack(alignment: .center) {
                 
                 Spacer()
@@ -23,38 +34,57 @@ struct TabuleiroView: View {
             Spacer()
             
             HStack(alignment: .center) {
-              
-                Button(
-                    action: {
-                        //acao da navegacao
-                    },
-                    label: {
-                        Image("circuloBotaoDado")
+                
+                Button(action: {
+                    
+                },
+                label: {
+                    
+                    
+                    ZStack(alignment: .center) {
+                   
+                        
+                    
+                    Image("circuloBotaoDado")
+                        
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 140, height:  140, alignment: .bottomLeading)
+                        .padding(.leading, 30)
+                        .padding(.bottom, 30)
+                        
+                        Image("Dado 1")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.3, alignment: .bottomLeading)
+                            .frame(width: 60, height: 60, alignment: .center)
+                            .padding(.leading, 30)
+                            .padding(.bottom, 30)
+                            
                     }
-                )
-
+                    
+                })
+                    
+                
                 Spacer()
+          
                 
                 ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
                     Text("cartas")
                 })
                 
             }//fim HStack
-
+            
             
             
         }//fim VStack
-            .background(
-                Image("tabuleiro")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width*1.2, height: UIScreen.main.bounds.height*0.8, alignment: .center)
-            )
-                
+        .background(
+            Image("tabuleiro")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width*1.2, height: UIScreen.main.bounds.height*0.8, alignment: .center)
+        )
     }
+    
 }
 
 struct TabuleiroView_Previews: PreviewProvider {
