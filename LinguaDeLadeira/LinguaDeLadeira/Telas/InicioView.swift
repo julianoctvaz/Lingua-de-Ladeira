@@ -13,7 +13,7 @@ struct InicioView: View {
             Image("linguaDeLadeiraTitulo")
                 .resizable()
                 .aspectRatio(contentMode:.fit)
-                .frame(width: UIScreen.main.bounds.width*1.1, height: UIScreen.main.bounds.height*0.5, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.3, alignment: .center)
             
             Spacer()
             
@@ -47,6 +47,13 @@ struct InicioView: View {
             Spacer()
                
         }
+        .background(
+            Image("fundo")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height, alignment: .center)
+        )
+        
     }
 }
 
