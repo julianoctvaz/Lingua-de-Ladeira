@@ -23,13 +23,13 @@ struct TabuleiroView: View {
         VStack(alignment: .leading) {
             
             
-            HStack(alignment: .center) {
-                
-                Spacer()
-                
-                Text("LaUrsa")
-            }
-            .padding()
+//            HStack(alignment: .center) {
+//
+//                Spacer()
+//
+//                Text("LaUrsa")
+//            }
+//            .padding()
             
             Spacer()
             
@@ -68,9 +68,9 @@ struct TabuleiroView: View {
                 Spacer()
           
                 
-                ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
-                    Text("cartas")
-                })
+//                ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
+//                    Text("cartas")
+//                })
                 
             }//fim HStack
             
