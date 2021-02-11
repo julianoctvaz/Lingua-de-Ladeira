@@ -9,15 +9,32 @@ import SwiftUI
 import GameplayKit
 
 
-var diceImages: [UIImage]! = [UIImage(named: "Dado 1")!, UIImage(named: "Dado 2")!, UIImage(named: "Dado 3")!]
+var diceImages: [UIImage]! = [UIImage(named: "1")!, UIImage(named: "2")!, UIImage(named: "3")!]
 
 let animationDice = UIImage.animatedImage(with: diceImages, duration: 2.0)
 
+struct startAnimation: UIViewRepresentable {
+    
+    func makeUIView(context: Self.Context) -> UIView {
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let myImage = UIImageView(frame: CGRect(x: 15, y: 180, width: 90, height: 75))
+        myImage.contentMode = UIView.ContentMode.scaleAspectFit
+        myImage.image = animationDice
+        myView.addSubview(myImage)
+        
+        return myView
+    }
+    
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<startAnimation>) {
+        print("updated!")
+    }
+}
 
 struct TabuleiroView: View {
     
     @State var dicing = false
-    @State var diced = "Dado 1"
+    @State var diced = "1"
+    @State var btnName = "Roll it"
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,48 +50,67 @@ struct TabuleiroView: View {
             
             Spacer()
             
-            HStack(alignment: .center) {
+            HStack(alignment: .center) {// camada que fica dado e cartas
                 
-                Button(action: {
-                    
-                },
-                label: {
-                    
-                    
-                    ZStack(alignment: .center) {
+                //dado
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+                
+                    Button(
+                        action: {
+                            let d6 = GKRandomDistribution.d6()
+                            var dicedInt = d6.nextInt()
+                            
+                            if dicedInt > 4 {
+                                dicedInt = Int.random(in: 1..<4)
+                            }
+                            
+                            self.diced = "\(dicedInt)"
+                            self.dicing.toggle()
+                            
+                            if self.dicing == true {
+                                self.btnName = "Done"
+                            } else {
+                                self.btnName = "Rool it"
+                            }
+                        }
+                    )
                    
-                        
+                  
                     
+                    {
+                        Text(self.btnName).font(.largeTitle)
+                    }
+                    
+                    //                Spacer()
+                    
+                    if self.dicing == true {
+                        startAnimation()
+                    } else {
+                        Image(self.diced)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 75)
+                        //                    let myView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                        //                    let myImage = UIImageView(frame: CGRect(x: 15, y: 50, width: 90, height: 75))
+                    }
+                }//fim VStack
+                .background(
                     Image("circuloBotaoDado")
-                        
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 140, height:  140, alignment: .bottomLeading)
                         .padding(.leading, 30)
-                        .padding(.bottom, 30)
-                        
-                        Image("Dado 1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 60, height: 60, alignment: .center)
-                            .padding(.leading, 30)
-                            .padding(.bottom, 30)
-                            
-                    }
-                    
-                })
-                    
+                        .padding(.bottom, 30))
+            
+//                Spacer()
                 
-                Spacer()
-          
-                
-                ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
+                //cartas
+                HStack(alignment: .center) {
+                    Spacer()
                     Text("cartas")
-                })
+                }
                 
             }//fim HStack
-            
-            
             
         }//fim VStack
         .background(
