@@ -40,13 +40,13 @@ struct TabuleiroView: View {
         VStack(alignment: .leading) {
             
             
-            HStack(alignment: .center) {
-                
-                Spacer()
-                
-                Text("LaUrsa")
-            }
-            .padding()
+//            HStack(alignment: .center) {
+//
+//                Spacer()
+//
+//                Text("LaUrsa")
+//            }
+//            .padding()
             
             Spacer()
             
@@ -104,10 +104,10 @@ struct TabuleiroView: View {
             
 //                Spacer()
                 
+                    Text("cartas")
                 //cartas
                 HStack(alignment: .center) {
                     Spacer()
-                    Text("cartas")
                 }
                 
             }//fim HStack
