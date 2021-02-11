@@ -11,7 +11,7 @@ import SwiftUI
 struct LinguaDeLadeiraApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabuleiroView()
         }
     }
 }
