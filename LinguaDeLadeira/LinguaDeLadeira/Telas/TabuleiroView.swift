@@ -36,6 +36,8 @@ struct TabuleiroView: View {
     @State var diced = "1"
     @State var btnName = "Roll it"
     
+    @State var showCartaPoupUpView: Bool = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -57,6 +59,8 @@ struct TabuleiroView: View {
                 
                     Button(
                         action: {
+                            
+                            
                             let d6 = GKRandomDistribution.d6()
                             var dicedInt = d6.nextInt()
                             
@@ -67,18 +71,23 @@ struct TabuleiroView: View {
                             self.diced = "\(dicedInt)"
                             self.dicing.toggle()
                             
+                            self.showCartaPoupUpView = true //mostra a carta
+                            
                             if self.dicing == true {
                                 self.btnName = "Done"
+                                self.showCartaPoupUpView = false
                             } else {
                                 self.btnName = "Rool it"
+                               
                             }
                         }
                     )
-                   
-                  
-                    
+
                     {
                         Text(self.btnName).font(.largeTitle)
+                    }
+                    .sheet(isPresented: $showCartaPoupUpView) {
+                        CartaPoupUpView()
                     }
                     
                     //                Spacer()
