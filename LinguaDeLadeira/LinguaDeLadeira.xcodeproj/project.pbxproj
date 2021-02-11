@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1009FA8325D577E500DEE67C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1009FA8225D577E500DEE67C /* WidgetKit.framework */; };
+		1009FA8525D577E500DEE67C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1009FA8425D577E500DEE67C /* SwiftUI.framework */; };
+		1009FA8825D577E500DEE67C /* LinguaDeLadeiraWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009FA8725D577E500DEE67C /* LinguaDeLadeiraWidget.swift */; };
+		1009FA8A25D577E700DEE67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1009FA8925D577E700DEE67C /* Assets.xcassets */; };
+		1009FA8E25D577E700DEE67C /* LinguaDeLadeiraWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1009FA8025D577E500DEE67C /* LinguaDeLadeiraWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1009FA9525D577F000DEE67C /* InicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17032D9325D4187600AA3485 /* InicioView.swift */; };
 		17032D9425D4187600AA3485 /* InicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17032D9325D4187600AA3485 /* InicioView.swift */; };
 		178FD1B725D4CC2000A829E8 /* TabuleiroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FD1B625D4CC2000A829E8 /* TabuleiroView.swift */; };
 		17BF923D25D332A200ED7182 /* LinguaDeLadeiraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF923C25D332A200ED7182 /* LinguaDeLadeiraApp.swift */; };
@@ -15,7 +21,37 @@
 		17CC499325D4C8560016936F /* FimDoJogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CC499225D4C8560016936F /* FimDoJogoView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1009FA8C25D577E700DEE67C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17BF923125D332A200ED7182 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1009FA7F25D577E500DEE67C;
+			remoteInfo = LinguaDeLadeiraWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1009FA8F25D577E700DEE67C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1009FA8E25D577E700DEE67C /* LinguaDeLadeiraWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1009FA8025D577E500DEE67C /* LinguaDeLadeiraWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinguaDeLadeiraWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1009FA8225D577E500DEE67C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1009FA8425D577E500DEE67C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1009FA8725D577E500DEE67C /* LinguaDeLadeiraWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaDeLadeiraWidget.swift; sourceTree = "<group>"; };
+		1009FA8925D577E700DEE67C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1009FA8B25D577E700DEE67C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17032D9325D4187600AA3485 /* InicioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioView.swift; sourceTree = "<group>"; };
 		178FD1B625D4CC2000A829E8 /* TabuleiroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabuleiroView.swift; sourceTree = "<group>"; };
 		17BF923925D332A200ED7182 /* LinguaDeLadeira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinguaDeLadeira.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +63,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1009FA7D25D577E500DEE67C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1009FA8525D577E500DEE67C /* SwiftUI.framework in Frameworks */,
+				1009FA8325D577E500DEE67C /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17BF923625D332A200ED7182 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,6 +82,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1009FA8125D577E500DEE67C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1009FA8225D577E500DEE67C /* WidgetKit.framework */,
+				1009FA8425D577E500DEE67C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1009FA8625D577E500DEE67C /* LinguaDeLadeiraWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1009FA8725D577E500DEE67C /* LinguaDeLadeiraWidget.swift */,
+				1009FA8925D577E700DEE67C /* Assets.xcassets */,
+				1009FA8B25D577E700DEE67C /* Info.plist */,
+			);
+			path = LinguaDeLadeiraWidget;
+			sourceTree = "<group>";
+		};
 		17032D8525D417C800AA3485 /* Telas */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				17BF923B25D332A200ED7182 /* LinguaDeLadeira */,
+				1009FA8625D577E500DEE67C /* LinguaDeLadeiraWidget */,
+				1009FA8125D577E500DEE67C /* Frameworks */,
 				17BF923A25D332A200ED7182 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				17BF923925D332A200ED7182 /* LinguaDeLadeira.app */,
+				1009FA8025D577E500DEE67C /* LinguaDeLadeiraWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +161,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1009FA7F25D577E500DEE67C /* LinguaDeLadeiraWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1009FA9225D577E700DEE67C /* Build configuration list for PBXNativeTarget "LinguaDeLadeiraWidgetExtension" */;
+			buildPhases = (
+				1009FA7C25D577E500DEE67C /* Sources */,
+				1009FA7D25D577E500DEE67C /* Frameworks */,
+				1009FA7E25D577E500DEE67C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinguaDeLadeiraWidgetExtension;
+			productName = LinguaDeLadeiraWidgetExtension;
+			productReference = 1009FA8025D577E500DEE67C /* LinguaDeLadeiraWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		17BF923825D332A200ED7182 /* LinguaDeLadeira */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17BF924825D332A300ED7182 /* Build configuration list for PBXNativeTarget "LinguaDeLadeira" */;
@@ -101,10 +185,12 @@
 				17BF923525D332A200ED7182 /* Sources */,
 				17BF923625D332A200ED7182 /* Frameworks */,
 				17BF923725D332A200ED7182 /* Resources */,
+				1009FA8F25D577E700DEE67C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1009FA8D25D577E700DEE67C /* PBXTargetDependency */,
 			);
 			name = LinguaDeLadeira;
 			productName = LinguaDeLadeira;
@@ -120,6 +206,9 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					1009FA7F25D577E500DEE67C = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					17BF923825D332A200ED7182 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -139,11 +228,20 @@
 			projectRoot = "";
 			targets = (
 				17BF923825D332A200ED7182 /* LinguaDeLadeira */,
+				1009FA7F25D577E500DEE67C /* LinguaDeLadeiraWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1009FA7E25D577E500DEE67C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1009FA8A25D577E700DEE67C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17BF923725D332A200ED7182 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +254,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1009FA7C25D577E500DEE67C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1009FA8825D577E500DEE67C /* LinguaDeLadeiraWidget.swift in Sources */,
+				1009FA9525D577F000DEE67C /* InicioView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17BF923525D332A200ED7182 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,7 +276,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1009FA8D25D577E700DEE67C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1009FA7F25D577E500DEE67C /* LinguaDeLadeiraWidgetExtension */;
+			targetProxy = 1009FA8C25D577E700DEE67C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1009FA9025D577E700DEE67C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
+				INFOPLIST_FILE = LinguaDeLadeiraWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy..LinguaDeLadeira.LinguaDeLadeiraWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1009FA9125D577E700DEE67C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
+				INFOPLIST_FILE = LinguaDeLadeiraWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy..LinguaDeLadeira.LinguaDeLadeiraWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		17BF924625D332A300ED7182 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -289,11 +446,12 @@
 		17BF924925D332A300ED7182 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LinguaDeLadeira/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LinguaDeLadeira/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -311,11 +469,12 @@
 		17BF924A25D332A300ED7182 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LinguaDeLadeira/Preview Content\"";
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LinguaDeLadeira/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -333,6 +492,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1009FA9225D577E700DEE67C /* Build configuration list for PBXNativeTarget "LinguaDeLadeiraWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1009FA9025D577E700DEE67C /* Debug */,
+				1009FA9125D577E700DEE67C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		17BF923425D332A200ED7182 /* Build configuration list for PBXProject "LinguaDeLadeira" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
