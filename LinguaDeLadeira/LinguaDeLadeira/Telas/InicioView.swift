@@ -28,9 +28,11 @@ struct InicioView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.1, alignment: .center)
+                            .shadow(radius:2)
                     }
                 )
      
+                /*
                 Button(
                     action: {
                         //acacao para ir para o onboarding de novo
@@ -42,17 +44,23 @@ struct InicioView: View {
                             .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.1, alignment: .center)
                     }
                 )
+            */
             }
             
+            Spacer()
             Spacer()
                
         }
         .background(
             Image("fundo")
             .resizable()
-            .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height, alignment: .center)
-        )
+            .aspectRatio(contentMode: .fit)
+            .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)
+          
+            
+            
+            
+        )  .ignoresSafeArea()
         
     }
 }
