@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InicioView: View {
+    
+    @State var showTabuleiroView: Bool = false
+    
     var body: some View {
         VStack{
             Image("linguaDeLadeiraTitulo")
@@ -22,6 +25,7 @@ struct InicioView: View {
                 Button(
                     action: {
                         //acao da navegacao
+                        self.showTabuleiroView.toggle()
                     },
                     label: {
                         Image("botaoIniciar")
@@ -31,6 +35,9 @@ struct InicioView: View {
                             .shadow(radius:2)
                     }
                 )
+                .fullScreenCover(isPresented: $showTabuleiroView) {
+                    TabuleiroView()
+                }
      
                 /*
                 Button(
