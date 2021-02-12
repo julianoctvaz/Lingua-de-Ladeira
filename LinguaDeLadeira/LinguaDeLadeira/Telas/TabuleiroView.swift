@@ -186,8 +186,11 @@ struct TabuleiroView: View {
                                         
                                     } else {
                                         self.paraDeGirarODado = true
-                                        self.showCartaPoupUpView = true //mostra a carta
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                            self.showCartaPoupUpView = true //mostra a carta
+                                        }
                                         self.jaentrouUmVezNaoEntraMais.toggle()
+                                      
                                         
                                     }
                                 }
@@ -210,6 +213,7 @@ struct TabuleiroView: View {
                         
                         if self.dicing == true {
                             startAnimation()
+                                
 
                         } else {
                             Image(self.diced) //quando dado parar mostra isso
