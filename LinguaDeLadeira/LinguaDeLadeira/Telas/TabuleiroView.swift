@@ -34,7 +34,6 @@ struct TabuleiroView: View {
     
     @State var dicing = false
     @State var diced = "1"
-    @State var paraDeGirarODado = false
     @State var currentStep = 0
     @State var jaentrouUmVezNaoEntraMais = false
     @State var showCartaPoupUpView: Bool = false
@@ -178,14 +177,12 @@ struct TabuleiroView: View {
                                    
                                     
                                     if self.dicing == true {
-                                    self.paraDeGirarODado = false
                                     self.showCartaPoupUpView = false
 //                                        2 seg
                                     self.dicing.toggle()
                                     
                                         
                                     } else {
-                                        self.paraDeGirarODado = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                             self.showCartaPoupUpView = true //mostra a carta
                                         }

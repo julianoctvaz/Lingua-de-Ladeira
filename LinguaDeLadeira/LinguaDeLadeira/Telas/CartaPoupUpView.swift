@@ -10,6 +10,7 @@ import SwiftUI
 struct CartaPoupUpView: View {
     
     @State var dicedValue: Int = 0
+    @State var imagemNumber: Int = Int.random(in: 10..<18)
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -40,8 +41,9 @@ struct CartaPoupUpView: View {
                   
                 Spacer()
                     
+                    
                 }.background(
-                    Image("banana")
+                    Image("\(imagemNumber)")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: UIScreen.main.bounds.width*0.8, height: UIScreen.main.bounds.height*0.8, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
