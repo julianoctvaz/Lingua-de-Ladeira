@@ -39,8 +39,6 @@ struct TabuleiroView: View {
     @State var jaentrouUmVezNaoEntraMais = false
     @State var showCartaPoupUpView: Bool = false
     
-//    @Environment(\.presentationMode) var presentationMode
-    
     var body: some View {
         ZStack {
             if (currentStep == 0) {
@@ -133,47 +131,17 @@ struct TabuleiroView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width*1.2, height: UIScreen.main.bounds.height*0.8, alignment: .center)
             }
-//            HStack{
-//                Spacer()
-//                Spacer()
-//                Spacer()
-//            Button(
-//                action: {
-//                    //fazer continhas
-//                    let x = Int.random(in: 1...3)
-//                    currentStep += x
-//                    print(x)
-//                },
-//                label: {
-//                    Image("1")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.1, alignment: .center)
-//                        .shadow(radius:2)
-//                }
-//            )
-//            }
-            //aqui termina o que iris fez
+
             
             VStack(alignment: .leading) {
                 
                 
-                //            HStack(alignment: .center) {
-                //
-                //                Spacer()
-                //
-                //                Text("LaUrsa")
-                //            }
-                //            .padding()
-                
-                // Spacer()
+          //la ursa com hstack
                 
                 HStack(alignment: .center) {// camada que fica dado e cartas
                     
-                    
-                    
                     //dado
-                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+                    ZStack(alignment: .center){
                         
                         Button(
                             action: {
@@ -230,38 +198,41 @@ struct TabuleiroView: View {
                                 Image("circuloBotaoDado")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 140, height:  140)
-                                    .padding(.leading, 240)
+                                    .frame(width: 896, height:  140, alignment: .bottomLeading)
+                                    .padding(.leading, 40)
                                     .padding(.top, 240)
                                     .shadow(radius:2)
                                     
                                 }
-                                )
-                                
-                        }
-                        .sheet(isPresented: $showCartaPoupUpView) {
+                        )  .sheet(isPresented: $showCartaPoupUpView) {
                             CartaPoupUpView()
                         }
                         
                         if self.dicing == true {
                             startAnimation()
-//                                .timing
+
                         } else {
-                            Image(self.diced)
+                            Image(self.diced) //quando dado parar mostra isso
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 896, height: 70, alignment: .bottomLeading)
-//                                .padding(.trailing, 104)
-//                                .padding(.bottom, 73)
+                                .padding(.top, 230)
+                                .padding(.leading, 103)
+
                             
                         }
-                    }//fim VStack
+                                
+                    }//fim ZStack
+                    
+                    //cartas
+                      
+                }//fim HStack
 
-            }//fim VStack
+            }//fim da VStack
             
-        }//fim da ZStack
-    }
-}
+        } //fim da Zstack
+    }// fim da view
+}// fim da struct
 
 
 struct TabuleiroView_Previews: PreviewProvider {
