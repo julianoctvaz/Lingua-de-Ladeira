@@ -34,10 +34,12 @@ struct TabuleiroView: View {
     
     @State var dicing = false
     @State var diced = "1"
-    @State var btnName = "Roll it"
+    @State var paraDeGirarODado = false
     @State var currentStep = 0
-    
+    @State var jaentrouUmVezNaoEntraMais = false
     @State var showCartaPoupUpView: Bool = false
+    
+//    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -131,26 +133,26 @@ struct TabuleiroView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width*1.2, height: UIScreen.main.bounds.height*0.8, alignment: .center)
             }
-            HStack{
-                Spacer()
-                Spacer()
-                Spacer()
-            Button(
-                action: {
-                    //fazer continhas
-                    let x = Int.random(in: 1...3)
-                    currentStep += x
-                    print(x)
-                },
-                label: {
-                    Image("1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.1, alignment: .center)
-                        .shadow(radius:2)
-                }
-            )
-            }
+//            HStack{
+//                Spacer()
+//                Spacer()
+//                Spacer()
+//            Button(
+//                action: {
+//                    //fazer continhas
+//                    let x = Int.random(in: 1...3)
+//                    currentStep += x
+//                    print(x)
+//                },
+//                label: {
+//                    Image("1")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: UIScreen.main.bounds.width*0.4, height:  UIScreen.main.bounds.height*0.1, alignment: .center)
+//                        .shadow(radius:2)
+//                }
+//            )
+//            }
             //aqui termina o que iris fez
             
             VStack(alignment: .leading) {
@@ -168,73 +170,93 @@ struct TabuleiroView: View {
                 
                 HStack(alignment: .center) {// camada que fica dado e cartas
                     
+                    
+                    
                     //dado
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
                         
                         Button(
                             action: {
                                 
-                                
-                                let d6 = GKRandomDistribution.d6()
-                                var dicedInt = d6.nextInt()
-                                
-                                if dicedInt > 4 {
-                                    dicedInt = Int.random(in: 1..<4)
+                                if(!jaentrouUmVezNaoEntraMais){
+
+                                    jaentrouUmVezNaoEntraMais.toggle()
+                                    
+                                    let d6 = GKRandomDistribution.d6()
+                                    var dicedInt = d6.nextInt()
+                                    
+                                    
+                                    if self.currentStep >= 15 {
+//                                        presentationMode.wrappedValue.dismiss()
+                                        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+                                    }
+                                    
+                                    if dicedInt > 3 {
+                                        dicedInt = Int.random(in: 1..<4)
+                                        print("entrou no if pois numero maior que 3")
+                                        print(dicedInt)
+                                        self.currentStep += dicedInt //atualiza tabuleiro
+                                    }
+                                    else{
+                                        print("NAO entrou no if pois numero MENOR que 3")
+                                        print(dicedInt)
+                                        self.currentStep += dicedInt // numero é menor que 4
+                                    }
+                                    
+                                    
+                                    self.diced = "\(dicedInt)"
+//                                    self.dicing.toggle()
+                                    
+                                   
+                                    
+                                    if self.dicing == true {
+                                    self.paraDeGirarODado = false
+                                    self.showCartaPoupUpView = false
+//                                        2 seg
+                                    self.dicing.toggle()
+                                    
+                                        
+                                    } else {
+                                        self.paraDeGirarODado = true
+                                        self.showCartaPoupUpView = true //mostra a carta
+                                        self.jaentrouUmVezNaoEntraMais.toggle()
+                                        
+                                    }
                                 }
                                 
-                                self.diced = "\(dicedInt)"
-                                self.dicing.toggle()
-                                
-                                self.showCartaPoupUpView = true //mostra a carta
-                                
-                                if self.dicing == true {
-                                    self.btnName = "Done"
-                                    self.showCartaPoupUpView = false
-                                } else {
-                                    self.btnName = "Rool it"
+                               
+                            },
+                            label:{
+                                Image("circuloBotaoDado")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 140, height:  140)
+                                    .padding(.leading, 240)
+                                    .padding(.top, 240)
+                                    .shadow(radius:2)
                                     
                                 }
-                            }
-                        )
-                        
-                        {
-                            Text(self.btnName).font(.largeTitle)
+                                )
+                                
                         }
                         .sheet(isPresented: $showCartaPoupUpView) {
                             CartaPoupUpView()
                         }
                         
-                        //                Spacer()
-                        
                         if self.dicing == true {
                             startAnimation()
+//                                .timing
                         } else {
                             Image(self.diced)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 90, height: 75)
-                            //                    let myView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-                            //                    let myImage = UIImageView(frame: CGRect(x: 15, y: 50, width: 90, height: 75))
+                                .frame(width: 896, height: 70, alignment: .bottomLeading)
+//                                .padding(.trailing, 104)
+//                                .padding(.bottom, 73)
+                            
                         }
                     }//fim VStack
-                    .background(
-                        Image("circuloBotaoDado")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 140, height:  140, alignment: .bottomLeading)
-                            .padding(.leading, 30)
-                            .padding(.bottom, 30))
-                    
-                    //                Spacer()
-                    
-                    Text("cartas")
-                    //cartas
-                    HStack(alignment: .center) {
-                        Spacer()
-                    }
-                    
-                }//fim HStack
-                
+
             }//fim VStack
             
         }//fim da ZStack
